@@ -12,7 +12,9 @@
             </p>
           </div>
         </div>
+        <hr>
       </section>
+      <NewestBlogs />
     </main>
     <Footer />
   </div>
@@ -21,5 +23,6 @@
 <script setup>
 import Navbar from '../components/Navbar.vue'
 import Footer from '../components/Footer.vue'
+import NewestBlogs from '../components/NewestBlogs.vue'
 </script>
 

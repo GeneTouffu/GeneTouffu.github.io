@@ -59,6 +59,22 @@ p {
   margin-bottom: 1rem;
 }
 
+hr {
+  border: none;
+  border-top: 3px double var(--color-text-alt);
+  color: var(--color-text-alt);
+  text-align: center;
+  overflow: visible;
+}
+
+hr::after {
+    background: var(--color-bg);
+    content: "§";
+    position: relative;
+    padding: 0 4px;
+    top: -1em;
+}
+
 a {
   color: var(--color-link);
   text-decoration: underline;
