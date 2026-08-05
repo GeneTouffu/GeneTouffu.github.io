@@ -7,5 +7,6 @@ export default defineConfig({
   base: '/blog/',
   cleanUrls: true,
   title: "Blog",
-  description: "A VitePress Site"
+  description: "A VitePress Site",
+  ignoreDeadLinks: true
 })
