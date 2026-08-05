@@ -75,13 +75,13 @@ hr::after {
     top: -1em;
 }
 
-a {
+a, RouterLink {
   color: var(--color-link);
   text-decoration: underline;
 
 }
 
-a:hover {
+a:hover, RouterLink:hover {
   color: var(--color-link-hover);
   text-decoration: wavy underline;
 }
