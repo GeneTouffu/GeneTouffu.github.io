@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar">
-    <RouterLink class="brand" to="/">danbutres.dev/</RouterLink>
+    <RouterLink class="brand" to="/">danbutres.dev</RouterLink>
     <div class="nav-links">
       <RouterLink to="/about">about/</RouterLink>
       <RouterLink to="/blog">blogs/</RouterLink>

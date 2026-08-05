@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "npm run build && npm run preview",
     "build": "vue-tsc -b && vite build && npm run blog:build",
     "preview": "vite preview",
     "blog:dev": "vitepress dev",

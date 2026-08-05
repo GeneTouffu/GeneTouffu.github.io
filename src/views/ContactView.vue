@@ -15,7 +15,3 @@
 
   <NewestBlogs />
 </template>
-
-<script setup>
-import NewestBlogs from '../components/NewestBlogs.vue';
-</script>
