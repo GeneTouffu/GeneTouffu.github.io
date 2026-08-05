@@ -1,17 +1,23 @@
 <template>
   <nav class="navbar">
-    <RouterLink class="brand" to="/">danbutres.dev/</RouterLink>
+    <AppLink class="brand" to="/">danbutres.dev</AppLink>
     <div class="nav-links">
-      <RouterLink to="/about">about/</RouterLink>
-      <RouterLink to="/blog">blogs/</RouterLink>
-      <RouterLink to="/contact">contact/</RouterLink>
+      <AppLink to="/about">about/</AppLink>
+      <AppLink to="/blog">blogs/</AppLink>
+      <AppLink to="/contact">contact/</AppLink>
     </div>
   </nav>
 </template>
 
 <script>
+import AppLink from './AppLink.vue';
+
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  components: {
+    AppLink
+  }
+
 }
 </script>
 
