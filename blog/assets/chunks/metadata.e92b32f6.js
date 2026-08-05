@@ -1,0 +1,1 @@
+window.__VP_HASH_MAP__=JSON.parse("{\"board-games.md\":\"BOjDD_Ka\"}");window.__VP_SITE_DATA__=JSON.parse("{\"lang\":\"en-US\",\"dir\":\"ltr\",\"title\":\"Blog\",\"description\":\"A VitePress Site\",\"base\":\"/blog/\",\"head\":[],\"router\":{\"prefetchLinks\":true},\"appearance\":true,\"themeConfig\":{},\"locales\":{},\"cleanUrls\":true,\"additionalConfig\":{}}");
