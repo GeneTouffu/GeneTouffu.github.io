@@ -5,8 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "build": "vue-tsc -b && vite build && npm run blog:build",
+    "preview": "vite preview",
+    "blog:dev": "vitepress dev",
+    "blog:build": "vitepress build",
+    "blog:preview": "vitepress preview"
   },
   "dependencies": {
     "vue": "^3.5.39",

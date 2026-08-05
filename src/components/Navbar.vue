@@ -1,10 +1,10 @@
 <template>
   <nav class="navbar">
-    <a class="brand" href="#">danbutres.dev/</a>
+    <RouterLink class="brand" to="/">danbutres.dev/</RouterLink>
     <div class="nav-links">
-      <a href="#about">about/</a>
-      <a href="#blogs">blogs/</a>
-      <a href="#contact">contact/</a>
+      <RouterLink to="/about">about/</RouterLink>
+      <RouterLink to="/blog">blogs/</RouterLink>
+      <RouterLink to="/contact">contact/</RouterLink>
     </div>
   </nav>
 </template>
@@ -14,6 +14,7 @@ export default {
   name: 'Navbar'
 }
 </script>
+
 
 <style scoped>
 .navbar {
