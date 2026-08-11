@@ -12,6 +12,4 @@
 
     <hr>
   </section>
-
-  <NewestBlogs />
 </template>
