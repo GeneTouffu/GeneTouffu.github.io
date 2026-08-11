@@ -6,7 +6,7 @@
 
 2. - [x] Make global styling and homepage
 
-3. - [ ] research routing stuffs
+3. - [x] research routing stuffs
 
 ## Step 2. Initial blog posts
 
