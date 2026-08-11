@@ -1,5 +1,5 @@
 <template>
-  <article class="blog">
+  <article>
     <VueMarkdown :source="markdown" />
   </article>
 </template>

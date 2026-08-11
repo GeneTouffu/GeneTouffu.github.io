@@ -1,3 +1,5 @@
+
+
 <template>
   <section>
     <div>
@@ -7,9 +9,14 @@
         <p>
           This is my personal and semi-professional space. Everything here is written by me, not AI. I'm hoping to write about board games, movies, and software development, and I hope you find something here that sparks your interest.
         </p>
+
+        <RouterLink to="/blogs/board-games" >Board Games</RouterLink>
       </div>
     </div>
 
     <hr>
   </section>
 </template>
+<script lang="ts">
+import { RouterLink } from 'vue-router'
+</script>
