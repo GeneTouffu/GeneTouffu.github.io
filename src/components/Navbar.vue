@@ -3,7 +3,7 @@
     <AppLink class="brand" to="/">danbutres.dev</AppLink>
     <div class="nav-links">
       <AppLink to="/about">about/</AppLink>
-      <AppLink to="/blog">blogs/</AppLink>
+      <AppLink to="/blogs">blogs/</AppLink>
       <AppLink to="/contact">contact/</AppLink>
     </div>
   </nav>

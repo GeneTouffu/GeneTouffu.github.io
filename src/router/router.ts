@@ -8,7 +8,7 @@ import ContactView from '../views/ContactView.vue';
 const routes = [
   { path: '/', component: HomeView },
   { path: '/about', component: AboutView },
-  { path: '/blog', component: BlogHomepageView },
+  { path: '/blogs', component: BlogHomepageView },
   { path: '/contact', component: ContactView },
   { path: '/:pathMatch(.*)*', component: HomeView }
 ]
