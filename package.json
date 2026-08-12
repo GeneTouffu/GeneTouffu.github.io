@@ -6,10 +6,13 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vue-tsc -b && vite build",
+    "publish": "npm run blog:index && npm run build",
     "preview": "vite preview",
-    "blog:new": "node scripts/new-blog.js"
+    "blog:new": "node scripts/new-blog.js",
+    "blog:index": "node scripts/generate-blog-index.js"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "vue": "^3.5.39",
     "vue-markdown-render": "^2.3.1",
     "vue-router": "^5.2.0"
