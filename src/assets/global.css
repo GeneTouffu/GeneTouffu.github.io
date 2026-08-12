@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oxygen:wght@300;400;700&display=swap');
+
 :root {
   --color-bg: #101614;
   --color-bg-alt: #1b2a25;
@@ -26,7 +28,7 @@ body,
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", sans-serif;
   line-height: 1.6;
   padding: 0;
 }
@@ -69,9 +71,15 @@ h2 {
   text-align: center;
 }
 
+.blog-article h1,
+.blog-article h2 {
+  text-align: left;
+}
+
 p {
   color: var(--color-text-alt);
   margin-bottom: 1rem;
+  text-align: justify;
 }
 
 pre {

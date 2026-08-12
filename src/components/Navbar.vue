@@ -4,7 +4,7 @@
     <div class="nav-links">
       <RouterLink to="/about">about/</RouterLink>
       <RouterLink to="/blogs">blogs/</RouterLink>
-      <RouterLink to="/contact">contact/</RouterLink>
+      <a href="https://github.com/GeneTouffu">projects/</a>
     </div>
   </nav>
 </template>
