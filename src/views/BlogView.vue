@@ -21,6 +21,7 @@ const route = useRoute()
 
 const slug = ref('')
 const markdown = ref<string | undefined>()
+  const rawMarkdown = ref<string >()
 
 const blogs = import.meta.glob('../../blog/**/*.md', {
   query: '?raw',
@@ -38,7 +39,12 @@ async function loadBlog() {
     return
   }
 
-  markdown.value = await loader()
+  rawMarkdown.value = await loader()    
+
+  markdown.value = rawMarkdown.value.replace(
+    /^---[\s\S]*?---\s*/,
+    ''
+  )
 }
 
 watch(
