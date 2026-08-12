@@ -4,28 +4,24 @@
       <div class="footer-content">
         <b class="website-name">Daniel Butres</b>
         <nav class="contact-nav">
-          <button class="email-btn" @click="sendEmail">
-            Email Me
-          </button>
+          <button class="email-btn" @click="sendEmail">Email Me</button>
         </nav>
       </div>
     </div>
   </footer>
 </template>
 
-
 <script setup lang="ts">
-const email = import.meta.env.VITE_PERSONAL_EMAIL
+const email = import.meta.env.VITE_PERSONAL_EMAIL;
 
 function sendEmail() {
-  window.open(`mailto:${email}`, '_blank')
+  window.open(`mailto:${email}`, "_blank");
 }
 </script>
 
 <style scoped>
 .footer {
-
-  background-color: var(--color-nav-element); 
+  background-color: var(--color-nav-element);
 }
 
 .footer-content {

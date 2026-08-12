@@ -10,17 +10,15 @@
 </template>
 
 <script>
-import { RouterLink } from 'vue-router'
+import { RouterLink } from "vue-router";
 
 export default {
-  name: 'Navbar',
+  name: "Navbar",
   components: {
-    RouterLink
-  }
-
-}
+    RouterLink,
+  },
+};
 </script>
-
 
 <style scoped>
 .navbar {
@@ -59,7 +57,6 @@ export default {
   .brand {
     font-size: clamp(1.25rem, 2.5vw, 1.25rem);
   }
-
 
   .nav-links {
     gap: 1rem;

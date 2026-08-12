@@ -19,12 +19,8 @@
       <h2>{{ blog.title }}</h2>
 
       <div class="blog-tags">
-        <span style="color: var(--color-link); align-self: center;" >Tags: </span>
-        <span
-          v-for="tag in blog.tags"
-          :key="tag"
-          class="blog-tag"
-        >
+        <span style="color: var(--color-link); align-self: center">Tags: </span>
+        <span v-for="tag in blog.tags" :key="tag" class="blog-tag">
           {{ tag }}
         </span>
       </div>
@@ -33,27 +29,27 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
-import { RouterLink } from 'vue-router'
-import { useBlogStore } from '../stores/BlogStore'
+import { computed, onMounted } from "vue";
+import { RouterLink } from "vue-router";
+import { useBlogStore } from "../stores/BlogStore";
 
 const props = defineProps<{
-  amount: number
-}>()
+  amount: number;
+}>();
 
-const blogStore = useBlogStore()
+const blogStore = useBlogStore();
 
 function formatDate(date: string): string {
-  return new Date(date).toLocaleDateString('en-AU')
+  return new Date(date).toLocaleDateString("en-AU");
 }
 
 onMounted(() => {
-  blogStore.loadBlogs()
-})
+  blogStore.loadBlogs();
+});
 
 const newestBlogs = computed(() => {
-  return blogStore.getRecent().slice(0, props.amount)
-})
+  return blogStore.getRecent().slice(0, props.amount);
+});
 </script>
 
 <style scoped>

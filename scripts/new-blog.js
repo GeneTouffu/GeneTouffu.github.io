@@ -42,12 +42,7 @@ async function main() {
     .map((tag) => `  - ${tag}`)
     .join("\n");
 
-  const templatePath = path.join(
-    __dirname,
-    "..",
-    "docs",
-    "blog_format.md"
-  );
+  const templatePath = path.join(__dirname, "..", "docs", "blog_format.md");
 
   const template = fs.readFileSync(templatePath, "utf8");
 
@@ -57,12 +52,7 @@ async function main() {
     .replaceAll("{{tags}}", tags)
     .replaceAll("{{slug}}", slug);
 
-  const categoryDir = path.join(
-    __dirname,
-    "..",
-    "blog",
-    categorySlug
-  );
+  const categoryDir = path.join(__dirname, "..", "blog", categorySlug);
 
   fs.mkdirSync(categoryDir, { recursive: true });
 
