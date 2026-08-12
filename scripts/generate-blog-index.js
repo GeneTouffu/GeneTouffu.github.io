@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const blogsDir = path.join(__dirname, "..", "blog");
-const outputPath = path.join(blogsDir, "index.json");
+const outputPath = path.join(__dirname, "..", "public", "blog-index.json");
 
 function getMarkdownFiles(dir) {
   const files = [];

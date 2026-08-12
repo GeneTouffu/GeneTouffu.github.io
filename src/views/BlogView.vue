@@ -13,23 +13,37 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import BlogComponent from '../components/BlogComponent.vue'
 
 const route = useRoute()
 
-const slug = computed(() => route.params.slug as string)
+const slug = ref('')
+const markdown = ref<string | undefined>()
 
 const blogs = import.meta.glob('../../blog/**/*.md', {
   query: '?raw',
-  import: 'default',
-  eager: true
-}) as Record<string, string>
-
-const markdown = computed(() => {
-  const content =  blogs[`../../blog/${slug.value}.md`]
-  return content.replace(/^---[\s\S]*?---\s*/, '')
+  import: 'default'
 })
 
+async function loadBlog() {
+  slug.value = route.params.slug as string
+
+  const loader = blogs[`../../blog/${slug.value}.md`] as
+    (() => Promise<string>) | undefined
+
+  if (!loader) {
+    markdown.value = undefined
+    return
+  }
+
+  markdown.value = await loader()
+}
+
+watch(
+  () => route.params.slug,
+  loadBlog,
+  { immediate: true }
+)
 </script>
