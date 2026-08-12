@@ -13,7 +13,8 @@
     <hr>
   </section>
 
-  <NewestBlogs />
+  <h1>Most Recent Blogs</h1>
+  <NewestBlogs  :amount="3" />
 </template>
 
 <script setup>

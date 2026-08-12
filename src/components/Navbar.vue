@@ -28,7 +28,7 @@ export default {
   grid-template-columns: 1fr auto 1fr;
   font-size: 1.5rem;
   padding: 1rem 1.5rem;
-  background-color: var(--color-bg-alt);
+  background-color: var(--color-nav-element);
   height: 3rem;
 }
 
