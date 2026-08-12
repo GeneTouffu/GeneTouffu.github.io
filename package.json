@@ -4,12 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite dev",
+    "dev": "vite dev --mode development",
     "build": "vue-tsc -b && vite build",
     "publish": "npm run blog:index && npm run build",
     "preview": "vite preview",
     "blog:new": "node scripts/new-blog.js",
-    "blog:index": "node scripts/generate-blog-index.js"
+    "blog:index": "node scripts/generate-blog-index.js",
+    "prettier": "npx prettier . --write"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
