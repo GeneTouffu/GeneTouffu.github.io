@@ -13,21 +13,19 @@
   </footer>
 </template>
 
-<script>
-export default {
-  name: 'Footer',
-  methods: {
-    sendEmail() {
-      window.location.href = 'mailto:placeholderfornow-notdan@notdan.com';
-    }
-  }
+
+<script setup lang="ts">
+const email = import.meta.env.VITE_PERSONAL_EMAIL
+
+function sendEmail() {
+  window.open(`mailto:${email}`, '_blank')
 }
 </script>
 
 <style scoped>
 .footer {
 
-  background-color: var(--color-bg-alt); 
+  background-color: var(--color-nav-element); 
 }
 
 .footer-content {

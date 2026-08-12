@@ -24,6 +24,8 @@ jobs:
 
       - name: Build & Gen index
         run: npm run publish
+        env:
+          VITE_PERSONAL_EMAIL: ${{ secrets.PERSONAL_EMAIL }}
 
       - name: Copy index.html to 404.html
         run:  cp dist/index.html dist/404.html
