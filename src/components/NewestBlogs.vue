@@ -1,6 +1,18 @@
 <template>
   <section class="newest-blogs">
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 300px;
+      "
+      v-if="loading"
+    >
+      <p>Loading...</p>
+    </div>
     <RouterLink
+      v-else
       v-for="blog in newestBlogs"
       :key="blog.path"
       :to="blog.path"
@@ -29,7 +41,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { RouterLink } from "vue-router";
 import { useBlogStore } from "../stores/BlogStore";
 
@@ -38,13 +50,18 @@ const props = defineProps<{
 }>();
 
 const blogStore = useBlogStore();
+const loading = ref(true);
 
 function formatDate(date: string): string {
   return new Date(date).toLocaleDateString("en-AU");
 }
 
-onMounted(() => {
-  blogStore.loadBlogs();
+onMounted(async () => {
+  try {
+    await blogStore.loadBlogs();
+  } finally {
+    loading.value = false;
+  }
 });
 
 const newestBlogs = computed(() => {

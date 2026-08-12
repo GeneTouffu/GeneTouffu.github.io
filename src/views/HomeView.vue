@@ -14,10 +14,10 @@
     </div>
 
     <hr />
-  </section>
 
-  <h1>Most Recent Blogs</h1>
-  <NewestBlogs :amount="3" />
+    <h1>Most Recent Blogs</h1>
+    <NewestBlogs :amount="3" />
+  </section>
 </template>
 
 <script setup>
