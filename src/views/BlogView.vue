@@ -1,5 +1,13 @@
 <template>
-  <BlogComponent v-if="markdown" :markdown="markdown" :slug="slug" />
+  <div v-if="loading">
+    <h1>Loading...</h1>
+  </div>
+
+  <BlogComponent
+    v-else-if="markdown"
+    :markdown="markdown"
+    :slug="slug"
+  />
 
   <div v-else>
     <h1>404</h1>
@@ -11,33 +19,34 @@
 import { ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import BlogComponent from "../components/BlogComponent.vue";
+import { useBlogStore } from "../stores/BlogStore";
 
 const route = useRoute();
 
-const slug = ref("");
-const markdown = ref<string | undefined>();
-const rawMarkdown = ref<string>();
+const { loadBlogs, loadContent } = useBlogStore();
 
-const blogs = import.meta.glob("../../blog/**/*.md", {
-  query: "?raw",
-  import: "default",
-});
+const slug = ref("");
+const markdown = ref<string>();
+const loading = ref(true);
 
 async function loadBlog() {
-  slug.value = route.params.slug as string;
+  loading.value = true;
+  markdown.value = undefined;
 
-  const loader = blogs[`../../blog/${slug.value}.md`] as
-    (() => Promise<string>) | undefined;
+  try {
+    slug.value = route.params.slug as string;
 
-  if (!loader) {
-    markdown.value = undefined;
-    return;
+    await loadBlogs();
+
+    markdown.value = await loadContent(slug.value);
+  } finally {
+    loading.value = false;
   }
-
-  rawMarkdown.value = await loader();
-
-  markdown.value = rawMarkdown.value.replace(/^---[\s\S]*?---\s*/, "");
 }
 
-watch(() => route.params.slug, loadBlog, { immediate: true });
+watch(
+  () => route.params.slug,
+  loadBlog,
+  { immediate: true }
+);
 </script>

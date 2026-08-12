@@ -32,16 +32,9 @@ const blogs = markdownFiles.map((filePath) => {
   const { data } = matter(fileContent);
 
   const relativePath = path.relative(blogsDir, filePath);
-  const pathParts = relativePath.split(path.sep);
-
-  const category = pathParts.length > 1 ? pathParts[0] : null;
 
   return {
     ...data,
-    category,
-    path: `/blogs/${relativePath
-      .replaceAll(path.sep, "/")
-      .replace(/\.md$/, "")}`,
   };
 });
 

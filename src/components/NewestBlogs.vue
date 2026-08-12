@@ -15,7 +15,7 @@
       v-else
       v-for="blog in newestBlogs"
       :key="blog.path"
-      :to="blog.path"
+      :to="`blogs/${blog.slug}`"
       class="blog-preview"
     >
       <div class="blog-meta">

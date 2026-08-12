@@ -6,7 +6,6 @@ export interface Blog {
   tags: string[];
   slug: string;
   category: string | null;
-  path: string;
 }
 
 const blogs = ref<Blog[]>([]);
@@ -14,6 +13,11 @@ const loading = ref(false);
 const error = ref<Error | null>(null);
 
 let fetchPromise: Promise<void> | null = null;
+
+const blogFiles = import.meta.glob("../../blog/**/*.md", {
+  query: "?raw",
+  import: "default",
+});
 
 async function loadBlogs(): Promise<void> {
   if (blogs.value.length > 0) {
@@ -51,8 +55,8 @@ function getAll(): Blog[] {
   return blogs.value;
 }
 
-function getByPath(path: string): Blog | undefined {
-  return blogs.value.find((blog) => blog.path === path);
+function getBySlug(slug: string): Blog | undefined {
+  return blogs.value.find((blog) => blog.slug === slug);
 }
 
 function getByCategory(category: string): Blog[] {
@@ -83,6 +87,31 @@ function getRecent(): Blog[] {
   );
 }
 
+async function loadContent(slug: string): Promise<string | undefined> {
+  const blog = getBySlug(slug);
+
+  if (!blog) {
+    return undefined;
+  }
+
+  const path = `../../blog/${blog.slug}.md`;
+
+  const loader = blogFiles[path] as
+    | (() => Promise<string>)
+    | undefined;
+
+  if (!loader) {
+    return undefined;
+  }
+
+  const rawMarkdown = await loader();
+
+  return rawMarkdown.replace(
+    /^---[\s\S]*?---\s*/,
+    "",
+  );
+}
+
 export function useBlogStore() {
   return {
     blogs,
@@ -90,9 +119,10 @@ export function useBlogStore() {
     error,
 
     loadBlogs,
+    loadContent,
 
     getAll,
-    getByPath,
+    getBySlug,
     getByCategory,
     getByTag,
     getCategories,

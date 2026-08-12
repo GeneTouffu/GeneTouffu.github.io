@@ -29,11 +29,9 @@ function slugify(text) {
 async function main() {
   const title = await question("Title: ");
   const category = await question("Category: ");
-  const tagsInput = await question("Tags (comma separated): ");
-
+  const tagsInput = await question("Tags (comma separated e.g. JavaScript, Web Development): ");
   const date = new Date().toISOString().slice(0, 10);
-  const slug = slugify(title);
-  const categorySlug = slugify(category);
+  const slug = `${slugify(category)}/${slugify(title)}`;
 
   const tags = tagsInput
     .split(",")
@@ -49,14 +47,15 @@ async function main() {
   const content = template
     .replaceAll("{{title}}", title)
     .replaceAll("{{date}}", date)
+    .replaceAll("{{category}}", category)
     .replaceAll("{{tags}}", tags)
     .replaceAll("{{slug}}", slug);
 
-  const categoryDir = path.join(__dirname, "..", "blog", categorySlug);
+  const categoryDir = path.join(__dirname, "..", "blog", `${slugify(category)}`);
 
   fs.mkdirSync(categoryDir, { recursive: true });
 
-  const filePath = path.join(categoryDir, `${slug}.md`);
+  const filePath = path.join(categoryDir, `${slugify(title)}.md`);
 
   if (fs.existsSync(filePath)) {
     console.error(`A blog already exists: ${filePath}`);
