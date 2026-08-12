@@ -31,8 +31,8 @@ async function loadBlogs(): Promise<void> {
   loading.value = true;
   error.value = null;
 
-  fetchPromise = fetch("/blog-index.json")
-    .then(async (response) => {
+  fetchPromise = fetch(`/blog-index.json?t=${Date.now()}`)
+    .then(async (response) => { 
       if (!response.ok) {
         throw new Error(`Failed to load blogs: ${response.status}`);
       }
