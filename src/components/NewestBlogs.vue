@@ -14,7 +14,7 @@
     <RouterLink
       v-else
       v-for="blog in newestBlogs"
-      :key="blog.path"
+      :key="blog.slug"
       :to="`blogs/${blog.slug}`"
       class="blog-preview"
     >
