@@ -1,16 +1,22 @@
 [
   {
+    "title": "Second Bog",
+    "date": "2026-08-13T00:00:00.000Z",
+    "tags": [
+      "bgsff"
+    ],
+    "slug": "first-bog",
+    "category": "movies",
+    "path": "/blogs/movies/second-bog"
+  },
+  {
     "title": "First Bog",
     "date": "2026-08-12T00:00:00.000Z",
     "tags": [
       "bgs"
     ],
     "slug": "first-bog",
-    "category": "board-games",
-    "path": "/blogs/board-games/first-bog"
-  },
-  {
-    "category": null,
-    "path": "/blogs/board-games"
+    "category": "Board Games",
+    "path": "/blogs/Board Games/first-bog"
   }
 ]

@@ -8,4 +8,5 @@ slug: first-bog
 
 # First Bog
 
-Write your blog post here.`;export{e as default};
+Write your blog post here.
+`;export{e as default};
