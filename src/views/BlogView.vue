@@ -3,11 +3,7 @@
     <h1>Loading...</h1>
   </div>
 
-  <BlogComponent
-    v-else-if="markdown"
-    :markdown="markdown"
-    :slug="slug"
-  />
+  <BlogComponent v-else-if="markdown" :markdown="markdown" :slug="slug" />
 
   <div v-else>
     <h1>404</h1>
@@ -44,9 +40,5 @@ async function loadBlog() {
   }
 }
 
-watch(
-  () => route.params.slug,
-  loadBlog,
-  { immediate: true }
-);
+watch(() => route.params.slug, loadBlog, { immediate: true });
 </script>

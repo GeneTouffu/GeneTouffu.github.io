@@ -96,9 +96,7 @@ async function loadContent(slug: string): Promise<string | undefined> {
 
   const path = `../../blog/${blog.slug}.md`;
 
-  const loader = blogFiles[path] as
-    | (() => Promise<string>)
-    | undefined;
+  const loader = blogFiles[path] as (() => Promise<string>) | undefined;
 
   if (!loader) {
     return undefined;
@@ -106,10 +104,7 @@ async function loadContent(slug: string): Promise<string | undefined> {
 
   const rawMarkdown = await loader();
 
-  return rawMarkdown.replace(
-    /^---[\s\S]*?---\s*/,
-    "",
-  );
+  return rawMarkdown.replace(/^---[\s\S]*?---\s*/, "");
 }
 
 export function useBlogStore() {
