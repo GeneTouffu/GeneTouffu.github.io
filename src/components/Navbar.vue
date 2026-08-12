@@ -10,17 +10,15 @@
 </template>
 
 <script>
-import { RouterLink } from 'vue-router'
+import { RouterLink } from "vue-router";
 
 export default {
-  name: 'Navbar',
+  name: "Navbar",
   components: {
-    RouterLink
-  }
-
-}
+    RouterLink,
+  },
+};
 </script>
-
 
 <style scoped>
 .navbar {
@@ -28,7 +26,7 @@ export default {
   grid-template-columns: 1fr auto 1fr;
   font-size: 1.5rem;
   padding: 1rem 1.5rem;
-  background-color: var(--color-bg-alt);
+  background-color: var(--color-nav-element);
   height: 3rem;
 }
 
@@ -59,7 +57,6 @@ export default {
   .brand {
     font-size: clamp(1.25rem, 2.5vw, 1.25rem);
   }
-
 
   .nav-links {
     gap: 1rem;

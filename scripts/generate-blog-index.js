@@ -34,9 +34,7 @@ const blogs = markdownFiles.map((filePath) => {
   const relativePath = path.relative(blogsDir, filePath);
   const pathParts = relativePath.split(path.sep);
 
-  const category = pathParts.length > 1
-    ? pathParts[0]
-    : null;
+  const category = pathParts.length > 1 ? pathParts[0] : null;
 
   return {
     ...data,
@@ -51,10 +49,7 @@ blogs.sort((a, b) => {
   return new Date(b.date) - new Date(a.date);
 });
 
-fs.writeFileSync(
-  outputPath,
-  JSON.stringify(blogs, null, 2) + "\n"
-);
+fs.writeFileSync(outputPath, JSON.stringify(blogs, null, 2) + "\n");
 
 console.log(`Generated blog index with ${blogs.length} posts.`);
 console.log(`Output: ${outputPath}`);

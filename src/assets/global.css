@@ -1,8 +1,7 @@
-
-
 :root {
   --color-bg: #101614;
-  --color-bg-alt: #18211d;
+  --color-bg-alt: #1b2a25;
+  --color-nav-element: #18211d;
 
   --color-text: #d5e2db;
   --color-text-alt: #a8b8b0;
@@ -15,10 +14,11 @@
   --color-button-hover: #3ebd75;
 
   --color-border: #2c4238;
-
 }
 
-html, body, #app {
+html,
+body,
+#app {
   height: 100%;
   margin: 0;
 }
@@ -51,10 +51,21 @@ body {
   overflow-wrap: anywhere;
 }
 
+a,
+RouterLink {
+  color: var(--color-link);
+  text-decoration: underline;
+}
 
-h1, h2 {
+a:hover,
+RouterLink:hover {
+  color: var(--color-link-hover);
+  text-decoration: wavy underline;
+}
+
+h1,
+h2 {
   color: var(--color-heading);
-  margin-bottom: 0.5rem;
   text-align: center;
 }
 
@@ -78,22 +89,11 @@ hr {
 }
 
 hr::after {
-    background: var(--color-bg);
-    content: "§";
-    position: relative;
-    padding: 0 4px;
-    top: -1em;
-}
-
-a, RouterLink {
-  color: var(--color-link);
-  text-decoration: underline;
-
-}
-
-a:hover, RouterLink:hover {
-  color: var(--color-link-hover);
-  text-decoration: wavy underline;
+  background: var(--color-bg);
+  content: "§";
+  position: relative;
+  padding: 0 4px;
+  top: -1em;
 }
 
 button {

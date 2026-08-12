@@ -5,10 +5,10 @@
 </template>
 
 <script setup lang="ts">
-import VueMarkdown from 'vue-markdown-render'
+import VueMarkdown from "vue-markdown-render";
 
 defineProps<{
-  markdown: string
-  slug: string
-}>()
+  markdown: string;
+  slug: string;
+}>();
 </script>
