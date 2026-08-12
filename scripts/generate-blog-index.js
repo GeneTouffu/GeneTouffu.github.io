@@ -41,7 +41,9 @@ const blogs = markdownFiles.map((filePath) => {
   return {
     ...data,
     category,
-    path: `/blogs/${relativePath.replaceAll(path.sep, "/")}`,
+    path: `/blogs/${relativePath
+      .replaceAll(path.sep, "/")
+      .replace(/\.md$/, "")}`,
   };
 });
 

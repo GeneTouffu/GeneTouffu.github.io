@@ -21,13 +21,15 @@ const route = useRoute()
 
 const slug = computed(() => route.params.slug as string)
 
-const blogs = import.meta.glob('../../blog/*.md', {
+const blogs = import.meta.glob('../../blog/**/*.md', {
   query: '?raw',
   import: 'default',
   eager: true
 }) as Record<string, string>
 
 const markdown = computed(() => {
-  return blogs[`../../blog/${slug.value}.md`]
+  const content =  blogs[`../../blog/${slug.value}.md`]
+  return content.replace(/^---[\s\S]*?---\s*/, '')
 })
+
 </script>
