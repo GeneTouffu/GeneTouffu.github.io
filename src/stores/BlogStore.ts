@@ -1,12 +1,5 @@
 import { ref } from "vue";
-
-export interface Blog {
-  title: string;
-  date: string;
-  tags: string[];
-  slug: string;
-  category: string | null;
-}
+import type { Blog } from "../types/Blog";
 
 const blogs = ref<Blog[]>([]);
 const loading = ref(false);
@@ -31,7 +24,7 @@ async function loadBlogs(): Promise<void> {
   loading.value = true;
   error.value = null;
 
-  fetchPromise = fetch(`/blog-index.json?t=${Date.now()}`)
+  fetchPromise = fetch(`/blog-index.json?t=${Date.now()}`) // TODO: Make this not dumb
     .then(async (response) => { 
       if (!response.ok) {
         throw new Error(`Failed to load blogs: ${response.status}`);
@@ -81,12 +74,6 @@ function getTags(): string[] {
   return [...new Set(blogs.value.flatMap((blog) => blog.tags))];
 }
 
-function getRecent(): Blog[] {
-  return [...blogs.value].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-  );
-}
-
 async function loadContent(slug: string): Promise<string | undefined> {
   const blog = getBySlug(slug);
 
@@ -96,9 +83,7 @@ async function loadContent(slug: string): Promise<string | undefined> {
 
   const path = `../../blog/${blog.slug}.md`;
 
-  const loader = blogFiles[path] as
-    | (() => Promise<string>)
-    | undefined;
+  const loader = blogFiles[path] as (() => Promise<string>) | undefined;
 
   if (!loader) {
     return undefined;
@@ -106,10 +91,7 @@ async function loadContent(slug: string): Promise<string | undefined> {
 
   const rawMarkdown = await loader();
 
-  return rawMarkdown.replace(
-    /^---[\s\S]*?---\s*/,
-    "",
-  );
+  return rawMarkdown.replace(/^---[\s\S]*?---\s*/, "");
 }
 
 export function useBlogStore() {
@@ -127,6 +109,5 @@ export function useBlogStore() {
     getByTag,
     getCategories,
     getTags,
-    getRecent,
   };
 }

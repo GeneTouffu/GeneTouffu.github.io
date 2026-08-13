@@ -51,11 +51,13 @@ export default {
 @media (max-width: 864px) {
   .navbar {
     font-size: 1rem;
+    padding: 0.5rem;
     grid-template-columns: auto 1fr;
   }
 
   .brand {
-    font-size: clamp(1.25rem, 2.5vw, 1.25rem);
+    font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+    padding: 0.5rem;
   }
 
   .nav-links {

@@ -1,5 +1,5 @@
 <template>
-  <section class="newest-blogs">
+  <section class="blog-index">
     <div
       style="
         display: flex;
@@ -13,7 +13,7 @@
     </div>
     <RouterLink
       v-else
-      v-for="blog in newestBlogs"
+      v-for="blog in BlogIndex"
       :key="blog.slug"
       :to="`blogs/${blog.slug}`"
       class="blog-preview"
@@ -31,7 +31,7 @@
       <h2>{{ blog.title }}</h2>
 
       <div class="blog-tags">
-        <span style="color: var(--color-link); align-self: center">Tags: </span>
+        <span style="color: var(--color-link);">Tags: </span>
         <span v-for="tag in blog.tags" :key="tag" class="blog-tag">
           {{ tag }}
         </span>
@@ -44,17 +44,16 @@
 import { computed, onMounted, ref } from "vue";
 import { RouterLink } from "vue-router";
 import { useBlogStore } from "../stores/BlogStore";
+import {formatDate} from "../helpers/FormatHelper";
+import { bsortByRecent } from "../helpers/BlogHelper";
 
 const props = defineProps<{
   amount: number;
+  categoryFilter?: string | null;
 }>();
 
 const blogStore = useBlogStore();
 const loading = ref(true);
-
-function formatDate(date: string): string {
-  return new Date(date).toLocaleDateString("en-AU");
-}
 
 onMounted(async () => {
   try {
@@ -64,13 +63,19 @@ onMounted(async () => {
   }
 });
 
-const newestBlogs = computed(() => {
-  return blogStore.getRecent().slice(0, props.amount);
+
+const BlogIndex = computed(() => {
+  if (props.categoryFilter) {
+    return bsortByRecent(blogStore
+      .getByCategory(props.categoryFilter)
+      .slice(0, props.amount));
+  }
+  return bsortByRecent(blogStore.getAll()).slice(0, props.amount);
 });
 </script>
 
 <style scoped>
-.newest-blogs {
+.blog-index {
   padding: 1rem;
   border: 2px solid var(--color-bg-alt);
   border-radius: 15px;

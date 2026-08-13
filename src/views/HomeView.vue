@@ -4,13 +4,11 @@
       <h1>Hi, I'm Daniel</h1>
 
       <div>
+        <p>This is my personal and semi-professional webpage.</p>
         <p>
-          This is my personal and semi-professional webpage.
-        </p>
-        <p>
-          Everything here is written by me, not AI. I'm hoping to write about board games, movies,
-          and software development, and I hope you'll find something here that
-          sparks your interest.
+          Everything here is written by me, not AI. I'm hoping to write about
+          board games, movies, and software development, and I hope you'll find
+          something here that sparks your interest.
         </p>
       </div>
     </div>
@@ -18,10 +16,10 @@
     <hr />
 
     <h1>Most Recent Blogs</h1>
-    <NewestBlogs :amount="3" />
+    <BlogIndex :amount="3" />
   </section>
 </template>
 
 <script setup>
-import NewestBlogs from "../components/NewestBlogs.vue";
+import BlogIndex from "../components/BlogIndex.vue";
 </script>
