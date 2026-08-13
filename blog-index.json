@@ -1,11 +1,19 @@
 [
   {
-    "title": "Test Blog",
-    "date": "2026-08-12T00:00:00.000Z",
-    "category": "what the helly? GFSgsg?",
+    "title": "My First Test Blog",
+    "date": "2026-08-13T00:00:00.000Z",
+    "category": "Board Games",
     "tags": [
-      "dd"
+      "Board Games",
+      "Ark Nova"
     ],
-    "slug": "what-the-helly-gfsgsg/new-blog"
+    "slug": "board-games/my-first-test-blog"
+  },
+  {
+    "title": "Test Two?",
+    "date": "2026-08-13T00:00:00.000Z",
+    "category": "Not Bgs",
+    "tags": null,
+    "slug": "not-bgs/test-two"
   }
 ]
