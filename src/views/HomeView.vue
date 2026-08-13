@@ -16,10 +16,10 @@
     <hr />
 
     <h1>Most Recent Blogs</h1>
-    <NewestBlogs :amount="3" />
+    <BlogIndex :amount="3" />
   </section>
 </template>
 
 <script setup>
-import NewestBlogs from "../components/NewestBlogs.vue";
+import BlogIndex from "../components/BlogIndex.vue";
 </script>

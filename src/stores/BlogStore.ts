@@ -1,12 +1,5 @@
 import { ref } from "vue";
-
-export interface Blog {
-  title: string;
-  date: string;
-  tags: string[];
-  slug: string;
-  category: string | null;
-}
+import type { Blog } from "../types/Blog";
 
 const blogs = ref<Blog[]>([]);
 const loading = ref(false);
@@ -81,12 +74,6 @@ function getTags(): string[] {
   return [...new Set(blogs.value.flatMap((blog) => blog.tags))];
 }
 
-function getRecent(): Blog[] {
-  return [...blogs.value].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-  );
-}
-
 async function loadContent(slug: string): Promise<string | undefined> {
   const blog = getBySlug(slug);
 
@@ -122,6 +109,5 @@ export function useBlogStore() {
     getByTag,
     getCategories,
     getTags,
-    getRecent,
   };
 }
