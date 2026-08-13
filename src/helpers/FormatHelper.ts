@@ -1,0 +1,9 @@
+function formatDate(date: string): string {
+  return new Date(date).toLocaleDateString("en-AU");
+}
+
+export function FormatHelper() {
+  return {
+    formatDate,
+  };
+}

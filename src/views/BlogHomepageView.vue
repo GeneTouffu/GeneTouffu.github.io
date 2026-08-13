@@ -16,3 +16,9 @@
     <hr />
   </section>
 </template>
+
+<script setup lang="ts">
+import {useBlogStore} from "../stores/BlogStore.ts"
+
+
+</script>

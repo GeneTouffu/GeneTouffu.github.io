@@ -44,6 +44,7 @@
 import { computed, onMounted, ref } from "vue";
 import { RouterLink } from "vue-router";
 import { useBlogStore } from "../stores/BlogStore";
+import {formatDate} from "../helpers/FormatHelper";
 
 const props = defineProps<{
   amount: number;
@@ -51,10 +52,6 @@ const props = defineProps<{
 
 const blogStore = useBlogStore();
 const loading = ref(true);
-
-function formatDate(date: string): string {
-  return new Date(date).toLocaleDateString("en-AU");
-}
 
 onMounted(async () => {
   try {
