@@ -71,7 +71,6 @@ h2 {
   text-align: center;
 }
 
-.blog-article h1,
 .blog-article h2 {
   text-align: left;
 }
@@ -109,6 +108,7 @@ button {
   color: var(--color-heading);
   padding: 10px 20px;
   border-radius: 5px;
+  border-color: var(--color-button-hover);
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
