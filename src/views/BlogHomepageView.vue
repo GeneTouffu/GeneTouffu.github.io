@@ -1,7 +1,7 @@
 <template>
   <section>
     <div>
-      <h1>Blog Homepage View</h1>
+      <h1>Blogs</h1>
 
       <div>
         <p>
@@ -20,5 +20,5 @@
 <script setup lang="ts">
 import {useBlogStore} from "../stores/BlogStore.ts"
 
-
+const { loadBlogs } = useBlogStore()
 </script>

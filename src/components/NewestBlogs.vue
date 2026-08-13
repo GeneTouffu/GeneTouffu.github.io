@@ -31,7 +31,7 @@
       <h2>{{ blog.title }}</h2>
 
       <div class="blog-tags">
-        <span style="color: var(--color-link); align-self: center">Tags: </span>
+        <span style="color: var(--color-link);">Tags: </span>
         <span v-for="tag in blog.tags" :key="tag" class="blog-tag">
           {{ tag }}
         </span>
@@ -44,11 +44,13 @@
 import { computed, onMounted, ref } from "vue";
 import { RouterLink } from "vue-router";
 import { useBlogStore } from "../stores/BlogStore";
-import {formatDate} from "../helpers/FormatHelper";
+import {useFormatHelper} from "../helpers/FormatHelper";
 
 const props = defineProps<{
   amount: number;
 }>();
+
+const {formatDate} = useFormatHelper()
 
 const blogStore = useBlogStore();
 const loading = ref(true);
