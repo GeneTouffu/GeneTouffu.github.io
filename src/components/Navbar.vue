@@ -3,7 +3,7 @@
     <RouterLink class="brand" to="/">danbutres.dev</RouterLink>
     <div class="nav-links">
       <RouterLink to="/about">about/</RouterLink>
-      <RouterLink to="/blogs">blogs/</RouterLink>
+      <!-- <RouterLink to="/blogs">blogs/</RouterLink> -->
       <a href="https://github.com/GeneTouffu">projects/</a>
     </div>
   </nav>
